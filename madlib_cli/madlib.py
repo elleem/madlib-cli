@@ -1,3 +1,5 @@
+
+
 txt_file1 = './assets/dark_and_stormy_night_template.txt'
 txt_file2 = '../assets/make_me_a_video_game_template.txt'
 def welcome():
@@ -25,8 +27,32 @@ def read_template(txt_file):
 def merge():
     pass
 
-def parse_template():
-    pass
+def parse_template(template_string):
+    pieces_string = ""
+    pieces = []
+    is_a_piece = False
+    temp_piece = ""
+
+    for char in template_string:
+        if char == "{":
+            is_a_piece = True
+            pieces_string += char
+        elif char == "}":
+            is_a_piece = False
+            pieces_string += char
+            pieces.append(temp_piece)
+            temp_piece = ""
+        else:
+            if is_a_piece:
+                temp_piece += char
+            else:
+                pieces_string += char
+
+    return pieces_string, tuple(pieces)
+
 
 welcome()
 read_template(txt_file1)
+print(parse_template(txt_file1))
+
+
