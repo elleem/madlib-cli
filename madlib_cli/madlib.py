@@ -20,13 +20,6 @@ def read_template(txt_file):
     except FileNotFoundError:
         raise FileNotFoundError
 
-
-
-
-
-def merge():
-    pass
-
 def parse_template(template_string):
     pieces_string = ""
     pieces = []
@@ -50,9 +43,13 @@ def parse_template(template_string):
 
     return pieces_string, tuple(pieces)
 
+def merge(pieces_string, pieces):
+    result = pieces_string.format(*pieces)
+    return result
 
 welcome()
 read_template(txt_file1)
-print(parse_template(txt_file1))
+parse_template(txt_file1)
+#merge()
 
 
