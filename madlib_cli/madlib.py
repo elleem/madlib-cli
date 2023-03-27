@@ -2,15 +2,6 @@
 
 txt_file1 = './assets/dark_and_stormy_night_template.txt'
 txt_file2 = '../assets/make_me_a_video_game_template.txt'
-def welcome():
-    print('''
-    *********************************
-    Welcome to MadLibs Rescue Mission! 
-    To play, please enter the 
-    correct word type when prompted.
-    Enter quit to exit.
-    *********************************''')
-
 
 def read_template(txt_file):
     try:
@@ -47,9 +38,27 @@ def merge(pieces_string, pieces):
     result = pieces_string.format(*pieces)
     return result
 
-welcome()
-read_template(txt_file1)
-parse_template(txt_file1)
-#merge()
+def mad_lib():
+    print('''
+       *********************************
+       Welcome to MadLibs Rescue Mission! 
+       To play, please enter the 
+       correct word type when prompted.
+       Enter quit to exit.
+       *********************************''')
+    template = read_template(txt_file1)
+
+    pieces_string, pieces = parse_template(template)
+    user_input = []
+
+    for word in pieces:
+        word_input = input(f"Please enter {word}> ")
+        user_input.append(word_input)
+
+    madlib = merge(pieces_string,user_input)
+    print(f"Madlib: {madlib}")
+    with open("./assets/new_file.txt", "w" ) as f:
+        f.write(madlib)
 
 
+mad_lib()
