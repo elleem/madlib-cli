@@ -56,7 +56,7 @@ def mad_lib():
         user_input.append(word_input)
 
     madlib = merge(pieces_string,user_input)
-    print(f"Madlib: {madlib}")
+    print(f"Congratulations on completing your Madlib Mission: {madlib}")
     with open("./assets/new_file.txt", "w" ) as f:
         f.write(madlib)
 
