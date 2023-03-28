@@ -1,7 +1,7 @@
 
 
 txt_file1 = './assets/dark_and_stormy_night_template.txt'
-txt_file2 = '../assets/make_me_a_video_game_template.txt'
+txt_file2 = './assets/make_me_a_video_game_template.txt'
 
 def read_template(txt_file):
     try:
@@ -46,7 +46,7 @@ def mad_lib():
        correct word type when prompted.
        Enter quit to exit.
        *********************************''')
-    template = read_template(txt_file1)
+    template = read_template(txt_file2)
 
     pieces_string, pieces = parse_template(template)
     user_input = []
